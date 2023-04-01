@@ -1,0 +1,70 @@
+{
+  "name": "horizom/app-oauth-template",
+  "description": "Horizom with Oauth is Horizom App OAuth2 server support.",
+  "type": "project",
+  "version": "1.0.0",
+  "homepage": "https://horizom.github.io/oauth2",
+  "license": "MIT",
+  "keywords": [
+    "horizon",
+    "horizom",
+    "framework",
+    "php",
+    "oauth",
+    "oauth2"
+  ],
+  "authors": [
+    {
+      "name": "Horizom Team",
+      "email": "horizom.team@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^8.0.2",
+    "doctrine/dbal": "^3.3",
+    "fakerphp/faker": "^1.20",
+    "defuse/php-encryption": "^2.3",
+    "horizom/core": "^3.2",
+    "horizom/http": "^3.1",
+    "horizom/routing": "^3.1",
+    "horizom/session": "^3.1",
+    "horizom/validation": "^3.1",
+    "illuminate/database": "^8.0",
+    "lcobucci/jwt": "^4.1",
+    "league/oauth2-server": "^8.4",
+    "middlewares/https": "^2.0",
+    "middlewares/negotiation": "^2.0",
+    "middlewares/payload": "^3.0",
+    "middlewares/robots": "^2.0",
+    "middlewares/trailing-slash": "^2.0",
+    "middlewares/www": "^2.0",
+    "nesbot/carbon": "^2.61"
+  },
+  "require-dev": {
+    "horizom/var-dumper": "^3.1",
+    "robmorgan/phinx": "^0.12"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    },
+    "files": [
+      "bootstrap/helpers.php"
+    ]
+  },
+  "scripts": {
+    "start": "php -S localhost:8000 -t public",
+    "migration-create": "phinx create",
+    "migration-migrate": "phinx migrate",
+    "migration-migrate-dry": "phinx migrate --dry-run",
+    "migration-status": "phinx status",
+    "migration-rollback": "phinx rollback"
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "optimize-autoloader": true
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
