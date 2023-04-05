@@ -6,6 +6,41 @@ use Carbon\Carbon;
 use Illuminate\Database\Capsule\Manager as DB;
 
 /**
+ * Get base path helper
+ */
+function base_path(string $path = '')
+{
+    return $path ? HORIZOM_ROOT . '/' . $path : HORIZOM_ROOT;
+}
+
+/**
+ * Get the path to the storage folder
+ */
+function storage_path(string $path = '')
+{
+    $base = HORIZOM_ROOT . '/storage';
+    return $path ? $base . '/' . $path : $base;
+}
+
+/**
+ * Get the path to the public folder
+ */
+function public_path(string $path = '')
+{
+    $base = HORIZOM_ROOT . '/public';
+    return $path ? $base . '/' . $path : $base;
+}
+
+/**
+ * Get the path to the resources folder
+ */
+function resources_path(string $path = '')
+{
+    $base = HORIZOM_ROOT . '/resources';
+    return $path ? $base . '/' . $path : $base;
+}
+
+/**
  * Get a fluent database query builder instance.
  */
 function db(string $table)

@@ -62,9 +62,13 @@
     "start": "php -S localhost:8000 -t public",
     "migration-create": "phinx create",
     "migration-migrate": "phinx migrate",
-    "migration-migrate-dry": "phinx migrate --dry-run",
+    "migration-migrate:dry": "phinx migrate --dry-run",
     "migration-status": "phinx status",
-    "migration-rollback": "phinx rollback"
+    "migration-rollback": "phinx rollback",
+    "migration-seed:create": "phinx seed:create",
+    "migration-seed:run": "phinx seed:run",
+    "generate-encryption-keys": "php -r 'echo base64_encode(random_bytes(32)), PHP_EOL;'",
+    "generate-keypair": "openssl genrsa -out resources/secrets/private.key 2048 && openssl rsa -in resources/secrets/private.key -pubout -out resources/secrets/public.key"
   },
   "config": {
     "preferred-install": "dist",

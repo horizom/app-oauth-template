@@ -10,17 +10,17 @@ use Psr\Http\Message\ResponseInterface;
 
 class UsersController
 {
+    public function current(): ResponseInterface
+    {
+        return ResponseSchema::create()->send();
+    }
+
     public function index(): ResponseInterface
     {
         return ResponseSchema::create()->send();
     }
 
-    public function item(): ResponseInterface
-    {
-        return ResponseSchema::create()->send();
-    }
-
-    public function current(): ResponseInterface
+    public function show(): ResponseInterface
     {
         return ResponseSchema::create()->send();
     }

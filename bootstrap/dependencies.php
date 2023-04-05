@@ -15,12 +15,28 @@ declare(strict_types=1);
 $connections = config('database.connections');
 $default = config('database.default');
 $manager = new \Illuminate\Database\Capsule\Manager();
-$manager->addConnection($connections[$default], 'default');
+$manager->addConnection($connections[$default]);
 $manager->setAsGlobal();
 $manager->bootEloquent();
 
-$platform = $manager->getConnection()->getDoctrineSchemaManager()->getDatabasePlatform();
+$platform = $manager->getConnection()->getDoctrineConnection()->getDatabasePlatform();
 $platform->registerDoctrineTypeMapping('enum', 'string');
+
+/*
+|--------------------------------------------------------------------------
+| Implement Oauth 2 server
+|--------------------------------------------------------------------------
+*/
+
+$app->container()->set(
+    League\OAuth2\Server\AuthorizationServer::class,
+    App\Oauth\AuthorizationFactory::createAuthorizationServer()
+);
+
+$app->container()->set(
+    League\OAuth2\Server\ResourceServer::class,
+    App\Oauth\AuthorizationFactory::createResourcesServer()
+);
 
 /*
 |--------------------------------------------------------------------------
@@ -47,4 +63,5 @@ $app->add(new \Middlewares\ContentType());
 // Implement Robots
 $app->add(new \Middlewares\Robots(false));
 
+// Adding a middleware for JSON request processing
 $app->add(\Middlewares\JsonPayload::class);

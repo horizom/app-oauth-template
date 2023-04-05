@@ -6,9 +6,9 @@ namespace App\Models\Oauth;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Scope extends Model
+class PersonalAccessToken extends Model
 {
-    protected $table = 'oauth_scopes';
+    protected $table = 'oauth_personal_access_tokens';
 
     protected $primaryKey = 'id';
     protected $keyType = 'string';

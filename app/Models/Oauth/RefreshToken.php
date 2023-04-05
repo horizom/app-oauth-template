@@ -6,9 +6,9 @@ namespace App\Models\Oauth;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Scope extends Model
+class RefreshToken extends Model
 {
-    protected $table = 'oauth_scopes';
+    protected $table = 'oauth_refresh_tokens';
 
     protected $primaryKey = 'id';
     protected $keyType = 'string';
